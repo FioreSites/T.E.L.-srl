@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti | T.E.L. srl - Richiedi un Sopralluogo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --petrol: #006d77;
+            --navy: #1b263b;
+            --emerald: #06d6a0;
+            --logo-blue: #a3c4dc;
+            --logo-grey: #404040;
+            --ice: #f8f9fa;
+            --text: #2b2d42;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: -0.5px; }
+
+        /* NAVIGATION (Identica) */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
+        .logo-img { max-height: 60px; width: auto; }
+        .menu-toggle { display: none; cursor: pointer; }
+        .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.4s; background-color: var(--navy); }
+        .nav-links { display: flex; list-style: none; gap: 30px; align-items: center; }
+        .nav-links li a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        .nav-links li a:hover { color: var(--petrol); }
+
+        /* ANIMAZIONE HOVER BOTTONI (Ripristinata come Home) */
+        .btn { padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.4s; display: inline-block; text-align: center; cursor: pointer; border: none; }
+        .btn-primary { background-color: var(--emerald); color: var(--navy); }
+        .btn-primary:hover { background-color: var(--white); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        .btn-outline { border: 2px solid var(--navy); color: var(--navy); background: transparent; }
+        .btn-outline:hover { background-color: var(--navy); color: var(--white); transform: translateY(-3px); }
+
+        /* HERO PAGINA INTERNA (Identica) */
+        .page-header {
+            padding: 80px 5%;
+            background: linear-gradient(rgba(27, 38, 59, 0.65), rgba(27, 38, 59, 0.65)), url('https://cdn.stocksnap.io/img-thumbs/960w/business-office_9UPH197S3L.jpg') center/cover;
+            color: var(--white);
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; margin-bottom: 10px; }
+
+        /* SEZIONE CONTATTI */
+        section { padding: 80px 5%; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+        
+        .contact-info h2 { color: var(--navy); margin-bottom: 30px; }
+        .info-item { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; }
+        .info-icon { width: 50px; height: 50px; background: var(--ice); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--petrol); flex-shrink: 0; }
+
+        /* FORM */
+        .contact-form { background: var(--white); padding: 40px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--petrol); }
+
+        /* FOOTER (Identico) */
+        footer { background: var(--navy); color: var(--white); padding: 60px 5% 20px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links { display: none; flex-direction: column; width: 100%; background-color: var(--white); position: absolute; top: 75px; left: 0; padding: 20px 5%; border-bottom: 1px solid #eee; }
+            .nav-links.active { display: flex; }
+            .nav-links li { width: 100%; text-align: center; }
+			.container{width:600px;}
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">
+            <img src="./img/logo.png" alt="T.E.L. srl" class="logo-img">
+        </a>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="servizi.html">SERVIZI</a></li>
+            <li><a href="tecnologie.html">TECNOLOGIE</a></li>
+            <li><a href="supporto-b2b.html">SUPPORTO B2B</a></li>
+            <li><a href="contatti.html" style="color: var(--petrol);">CONTATTI</a></li>
+            <li><a href="tel:+390546XXXXXX" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">CHIAMATA RAPIDA</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1>Contattaci</h1>
+        <p style="opacity: 0.9; font-weight: 300; max-width: 700px; margin: 0 auto;">Se hai dubbi o richieste siamo a tua completa disposizione per consulenze tecniche, preventivi e assistenza rapida.</p>
+    </header>
+
+    <section>
+        <div class="container">
+            <div class="contact-wrapper">
+                
+                <div class="contact-info">
+                    <h2>Mettiamoci in contatto</h2>
+                    <p style="margin-bottom: 40px; color: #666;">I nostri uffici sono aperti dal Lunedì al Venerdì, dalle 08:30 alle 18:00.<br>Per emergenze tecniche su impianti centralizzati è attivo il servizio H24.</p>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Sede Operativa</h4>
+                            <p>Via Faenza, 123 - 48018 Faenza (RA)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Telefono</h4>
+                            <p>+39 0546 XXXXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@telservizi.eu</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 40px; border-radius: 10px; overflow: hidden; height: 250px; width:600px; background: #eee;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.106627221088!2d11.852666276661397!3d44.298554810452224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b4e70017867e3%3A0x6e5bf6b34ceae977!2sVia%20Sali%2C%2015%2C%2048018%20Faenza%20RA!5e1!3m2!1sit!2sit!4v1773607394486!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 25px; color: var(--navy);">Invia un messaggio</h3>
+                    <form action="#">
+                        <div class="form-group">
+                            <label>Nome e Cognome</label>
+                            <input type="text" placeholder="Inserisci il tuo nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Aziendale / Privata</label>
+                            <input type="email" placeholder="esempio@mail.it" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Sei un...</label>
+                            <select required>
+                                <option value="" disabled selected>Seleziona profilo</option>
+                                <option value="privato">Privato</option>
+                                <option value="amministratore">Amministratore di Condominio</option>
+                                <option value="progettista">Progettista / Termotecnico</option>
+                                <option value="azienda">Azienda</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Come possiamo aiutarti?</label>
+                            <textarea rows="5" placeholder="Descrivi brevemente la tua richiesta..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">INVIA RICHIESTA</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
+            <div>
+                <a href="index.html">
+                    <img src="./img/logo.png" alt="T.E.L. srl" class="logo-img" style="max-height: 50px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                </a>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Dal 1993, esperti nell'innovazione tecnologica applicata agli impianti termoidraulici ed elettrici.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px; color: var(--emerald);">Navigazione</h4>
+                <ul style="list-style: none; font-size: 0.85rem; opacity: 0.7; display: flex; flex-direction: column; gap: 8px;">
+                    <li><a href="index.html" style="text-decoration: none; color: white;">Home</a></li>
+                    <li><a href="servizi.html" style="text-decoration: none; color: white;">Servizi</a></li>
+                    <li><a href="tecnologie.html" style="text-decoration: none; color: white;">Tecnologie</a></li>
+                    <li><a href="supporto-b2b.html" style="text-decoration: none; color: white;">Supporto B2B</a></li>
+                    <li><a href="contatti.html" style="text-decoration: none; color: white;">Contatti</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 20px;">Legal</h4>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Via Sali, 15 - Faenza (RA)<br>E-Mail: <a href="mailto:tel@telservizi.er" style="color:white; text-decoration:none;">tel@telservizi.eu</a><br>Tel: <a href="tel:+393334893655" style="color:white; text-decoration:none;">+39 333 4893655</a><br>P.IVA: 01216540391</p>
+            </div>
+        </div>
+        <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; opacity: 0.5;">
+            © 2026 T.E.L. srl - Soluzioni Tecnologiche per l'Energia.
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
