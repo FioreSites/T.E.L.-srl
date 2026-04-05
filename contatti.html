@@ -22,7 +22,7 @@
         body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; background-color: var(--white); overflow-x: hidden; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: -0.5px; }
 
-        /* NAVIGATION (Identica) */
+        /* NAVIGATION */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
         .logo-img { max-height: 60px; width: auto; }
         .menu-toggle { display: none; cursor: pointer; }
@@ -31,7 +31,7 @@
         .nav-links li a { text-decoration: none; color: var(--navy); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         .nav-links li a:hover { color: var(--petrol); }
 
-        /* ANIMAZIONE HOVER BOTTONI (Ripristinata come Home) */
+        /* ANIMAZIONE HOVER BOTTONI (Coerente con Home) */
         .btn { padding: 15px 35px; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.4s; display: inline-block; text-align: center; cursor: pointer; border: none; }
         .btn-primary { background-color: var(--emerald); color: var(--navy); }
         .btn-primary:hover { background-color: var(--white); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -39,7 +39,7 @@
         .btn-outline { border: 2px solid var(--navy); color: var(--navy); background: transparent; }
         .btn-outline:hover { background-color: var(--navy); color: var(--white); transform: translateY(-3px); }
 
-        /* HERO PAGINA INTERNA (Identica) */
+        /* HERO PAGINA INTERNA */
         .page-header {
             padding: 80px 5%;
             background: linear-gradient(rgba(27, 38, 59, 0.65), rgba(27, 38, 59, 0.65)), url('https://cdn.stocksnap.io/img-thumbs/960w/business-office_9UPH197S3L.jpg') center/cover;
@@ -67,12 +67,12 @@
         }
         .form-group input:focus, .form-group textarea:focus { border-color: var(--petrol); }
 
-        /* FOOTER (Identico) */
+        /* FOOTER */
         footer { background: var(--navy); color: var(--white); padding: 60px 5% 20px; }
 
-        /* RESPONSIVE */
+        /* RESPONSIVE FIXES */
         @media (max-width: 992px) {
-            .contact-wrapper { grid-template-columns: 1fr; }
+            .contact-wrapper { grid-template-columns: 1fr; gap: 40px; }
             .page-header h1 { font-size: 2.2rem; }
         }
         @media (max-width: 768px) {
@@ -80,7 +80,12 @@
             .nav-links { display: none; flex-direction: column; width: 100%; background-color: var(--white); position: absolute; top: 75px; left: 0; padding: 20px 5%; border-bottom: 1px solid #eee; }
             .nav-links.active { display: flex; }
             .nav-links li { width: 100%; text-align: center; }
-			.container{width:600px;}
+            
+            section { padding: 40px 5%; }
+            .contact-form { padding: 25px; } /* Più spazio per il form su schermi piccoli */
+            
+            /* Rimossa la larghezza fissa del container che causava il bug */
+            .container { width: 100%; }
         }
     </style>
 </head>
@@ -139,8 +144,8 @@
                         </div>
                     </div>
 
-                    <div style="margin-top: 40px; border-radius: 10px; overflow: hidden; height: 250px; width:600px; background: #eee;">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.106627221088!2d11.852666276661397!3d44.298554810452224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b4e70017867e3%3A0x6e5bf6b34ceae977!2sVia%20Sali%2C%2015%2C%2048018%20Faenza%20RA!5e1!3m2!1sit!2sit!4v1773607394486!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div style="margin-top: 40px; border-radius: 10px; overflow: hidden; height: 300px; width: 100%; background: #eee;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.106627221088!2d11.852666276661397!3d44.298554810452224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132b4e70017867e3%3A0x6e5bf6b34ceae977!2sVia%20Sali%2C%2015%2C%2048018%20Faenza%20RA!5e1!3m2!1sit!2sit!4v1773607394486!5m2!1sit!2sit" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
 
@@ -177,7 +182,7 @@
         </div>
     </section>
 
-     <footer style="background: var(--navy); color: var(--white); padding: 60px 5% 20px;">
+    <footer style="background: var(--navy); color: var(--white); padding: 60px 5% 20px;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px;">
             <div>
                 <a href="index.html">
@@ -196,7 +201,7 @@
             </div>
             <div>
                 <h4 style="margin-bottom: 20px;">INFO</h4>
-                <p style="font-size: 0.85rem; opacity: 0.7;">Via Sali, 15 - Faenza (RA)<br>E-Mail: <a href="mailto:tel@telservizi.er" style="color:white; text-decoration:none;">tel@telservizi.eu</a><br>Tel: <a href="tel:+393334893655" style="color:white; text-decoration:none;">+39 333 4893655</a><br>P.IVA: 01216540391</p>
+                <p style="font-size: 0.85rem; opacity: 0.7;">Via Sali, 15 - Faenza (RA)<br>E-Mail: <a href="mailto:tel@telservizi.eu" style="color:white; text-decoration:none;">tel@telservizi.eu</a><br>Tel: <a href="tel:+393334893655" style="color:white; text-decoration:none;">+39 333 4893655</a><br>P.IVA: 01216540391</p>
             </div>
         </div>
         <div style="text-align: center; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem; opacity: 0.5;">
